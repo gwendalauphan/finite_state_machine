@@ -1,0 +1,6 @@
+nombre_octet 2
+alphabet aa-bb-cc
+regles 11,aa,22-22,bb,33-11,cc,33-33,cc,22-11,bb,&&-22,aa,&&-22,cc,&&-33,aa,&&-33,bb,&&-&&,aa,&&-&&,bb,&&-&&,cc,&&
+etats 11-22-33-&&
+etat_initiaux 11
+etat_finaux 33

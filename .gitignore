@@ -1,0 +1,30 @@
+# Build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+Testing
+
+automate
+*.cmake
+
+# Executables
+*.exe
+*.out
+*.o
+*.obj
+*.so
+*.a
+
+# Editor files
+*.swp
+*.swo
+*.user
+*.DS_Store
+
+# Logs
+*.log
+
+# Others
+*.dSYM/
