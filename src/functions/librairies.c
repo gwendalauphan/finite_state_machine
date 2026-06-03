@@ -11,13 +11,11 @@ char *read_input_letter(int longueur, int index, int status)
     int i,c, essai = 0, val1, status_bis;
     char longueurStr[12]; // Enough for int as string
     
-    char *chaine_verif = malloc(longueur * sizeof(char)); //Variable qui enregistre notre saisie
+    char *chaine_verif = malloc((longueur + 1) * sizeof(char)); //Variable qui enregistre notre saisie
 
-    char *saisie = malloc((longueur) * sizeof(char)); //Variable qu'on retourne apres verif
+    char *saisie = malloc((longueur + 1) * sizeof(char)); //Variable qu'on retourne apres verif
 
-    char **phrase_mod = malloc(3 * sizeof(char *)); //Variable servant à un print
-
-    for (int i = 0; i < 3; i++) phrase_mod[i] = malloc(10 * sizeof(char)); //Allocation de phrase_mod
+    const char *phrase_mod[3]; //Variable servant à un print
 
     //######-------Code servant à initialiser les valeurs acceptees du scanf----#####
 
@@ -120,6 +118,7 @@ char *read_input_letter(int longueur, int index, int status)
         }
     }
     printf("SAISIE: %s\n", saisie);
+    free(chaine_verif);
     return saisie;
 }
 

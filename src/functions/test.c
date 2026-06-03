@@ -9,7 +9,7 @@
 
 int mot_appatient_alpha(Alpha_Mot* alpha_mot){
         int i,j;
-        char tmp[nb_octets];
+        char tmp[nb_octets + 1];
         for(i=0; i<alpha_mot->nb_letters_mot*nb_octets;i+=nb_octets){
                 for(j = 0; j<nb_octets;j++){
                         tmp[j]= alpha_mot->mot[j+i];
@@ -34,26 +34,29 @@ void concatenation(Alpha_Mot* alpha_mot){
         char *mot_saisie;
         printf("\nSaisissez la longueur du mot a concatener: ");
         scanf("%d",&nb_lettres);
-        mot_concat = malloc(nb_octets*alpha_mot->nb_letters_mot * sizeof(char));
+        mot_concat = malloc((nb_octets*alpha_mot->nb_letters_mot + 1) * sizeof(char));
         strcpy(mot_concat, alpha_mot->mot);
-        mot_concat = realloc(mot_concat,nb_octets*(nb_lettres + alpha_mot->nb_letters_mot) * sizeof(char));
-        mot_saisie = malloc(nb_octets*nb_lettres * sizeof(char));
+        mot_concat = realloc(mot_concat,(nb_octets*(nb_lettres + alpha_mot->nb_letters_mot) + 1) * sizeof(char));
+        mot_saisie = malloc((nb_octets*nb_lettres + 1) * sizeof(char));
         printf("\nSaisie du mot: \n");
         scanf("%s", mot_saisie);
         for (i = 0; i<nb_lettres; i++){
                mot_concat[alpha_mot->nb_letters_mot+i] = mot_saisie[i];
         }
         printf("Mot concatene: %s\n", mot_concat);
+        free(mot_saisie);
+        free(mot_concat);
 }
 
 void miroir(Alpha_Mot* alpha_mot){
         char *mot_miroir;
-        mot_miroir = malloc(nb_octets*alpha_mot->nb_letters_mot * sizeof(char));
+        mot_miroir = malloc((nb_octets*alpha_mot->nb_letters_mot + 1) * sizeof(char));
         for (int i = 0; i<alpha_mot->nb_letters_mot; i++){
                 mot_miroir[i] = alpha_mot->mot[alpha_mot->nb_letters_mot-i-1];
         }
         mot_miroir[alpha_mot->nb_letters_mot] = '\0';
         printf("Mot miroir: %s\n", mot_miroir);
+        free(mot_miroir);
 }
 
 void estEnd(Alpha_Mot* alpha_mot){
@@ -62,7 +65,7 @@ void estEnd(Alpha_Mot* alpha_mot){
 
 int verifAppartenanceRecursive(AEF *aef, char *mot, char * etat_actuel, int profondeur){
         for (int j = 0; j < aef->nb_regles;j++){
-                char tmp[nb_octets];
+                char tmp[nb_octets + 1];
                 for (int i =0; i < nb_octets; i ++){
                         tmp[i] = mot[profondeur*nb_octets];
                 }

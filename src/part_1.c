@@ -92,6 +92,12 @@ void start_1(){
         printf("\nOUI : 1 / NON : 2\n");
         scanf("%d", &val2);
     }
+
+    for (int i = 0; i < numero_1.nb_letters_alpha; i++) {
+        free(numero_1.alphabet[i]);
+    }
+    free(numero_1.alphabet);
+    free(numero_1.mot);
 }
 
 Alpha_Mot input_Alpha_Mot(Alpha_Mot alpha_mot){
@@ -108,7 +114,7 @@ Alpha_Mot input_Alpha_Mot(Alpha_Mot alpha_mot){
     scanf("%d",&alpha_mot.nb_letters_mot);
 
 
-    alpha_mot.mot = malloc(nb_octets*alpha_mot.nb_letters_mot * sizeof(char));
+    alpha_mot.mot = malloc((nb_octets*alpha_mot.nb_letters_mot + 1) * sizeof(char));
     printf("\nSaisie du mot: \n");
     scanf("%s",alpha_mot.mot);
 
