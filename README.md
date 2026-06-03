@@ -21,7 +21,7 @@ make
 
 ### Run
 ```bash
-./finite-state-automata
+./automate
 ```
 
 

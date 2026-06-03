@@ -65,5 +65,7 @@ CTestTestfile.cmake
 _deps
 cmake-build-debug/
 
+automate
+
 # Tmp
 Automates_asma
